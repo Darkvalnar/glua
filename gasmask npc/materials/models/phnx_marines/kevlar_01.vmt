@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\phnx_marines\kevlar_01"
+	"$bumpmap" "models\phnx_marines\kevlar_01_normal"
+	"$normalmapalphaenvmapmask" "1"
+	"$surfaceprop" "flesh"
+
+}

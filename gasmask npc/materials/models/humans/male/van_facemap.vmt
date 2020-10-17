@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models/humans/male/group01/van_facemap"
+//	"$bumpmap" "models\player\t_guerilla\t_guerilla_normal"
+	"$normalmapalphaenvmapmask" "1"
+	"$surfaceprop" "flesh"
+"$halflambert" "1"
+}
