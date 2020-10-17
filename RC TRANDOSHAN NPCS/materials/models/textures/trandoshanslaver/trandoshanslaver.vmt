@@ -1,0 +1,23 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\textures\TrandoshanSlaver\TrandoshanSlaver"
+"$bumpmap" "models\textures\TrandoshanSlaver\TrandoshanSlaverBump"
+
+	"$selfillum" 			"1"
+	"$selfillumtint" 			"[.85 .85 1]"
+
+	"$phong" "1"
+	"$phongboost" "7"	
+	"$phongexponent" 95
+	"$phongfresnelranges"	"[0 0.5 1]"
+	"$phongexponent" "1"
+	"$phongexponenttexture" "models\textures\TrandoshanSlaver\Trandoshanslaverspec"
+	"$phongalbedotint" "1"
+
+	"$rimlight" "1"
+	"$rimlightexponenttexture" "models\textures\TrandoshanSlaver\Trandoshanslaverspec"				
+	"$rimlightexponent" "0.5"								
+	"$rimlightboost" "0.1"
+
+}
+

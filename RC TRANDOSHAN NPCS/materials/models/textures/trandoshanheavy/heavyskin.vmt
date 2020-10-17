@@ -1,0 +1,23 @@
+ "VertexLitGeneric"
+{
+	"$basetexture" "models\textures\TrandoshanHeavy\Heavyskin"
+"$bumpmap" "models\textures\TrandoshanHeavy\HeavyBump"
+
+	"$selfillum" 			"1"
+	"$selfillumtint" 			"[.85 .85 1]"
+
+	"$phong" "1"
+	"$phongboost" "7"	
+	"$phongexponent" 95
+	"$phongfresnelranges"	"[0 0.5 1]"
+	"$phongexponent" "1"
+	"$phongexponenttexture" "models\textures\TrandoshanHeavy\Heavyspec"
+	"$phongalbedotint" "1"
+
+	"$rimlight" "1"
+	"$rimlightexponenttexture" "models\textures\TrandoshanHeavy\Heavyspec"				
+	"$rimlightexponent" "0.5"								
+	"$rimlightboost" "0.1"
+
+}
+
