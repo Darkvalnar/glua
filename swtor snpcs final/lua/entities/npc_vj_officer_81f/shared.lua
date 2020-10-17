@@ -1,0 +1,27 @@
+if (!file.Exists("autorun/vj_base_autorun.lua","LUA")) then return end
+
+ENT.Base 			= "npc_vj_human_base" -- List of all base types: https://github.com/DrVrej/VJ-Base/wiki/Base-Types
+ENT.Type 			= "ai"
+ENT.PrintName 		= "81st Officer"
+ENT.Author 			= "DrVrej"
+ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Purpose 		= "Spawn it and fight with it!"
+ENT.Instructions 	= "Click on the spawnicon to spawn it."
+ENT.Category		= "TOR"
+
+ENT.IsVJBaseSNPC = true -- Is it a VJ Base SNPC?
+ENT.IsVJBaseSNPC_Human = true -- Is it a VJ Base human?
+
+function ENT:SetAutomaticFrameAdvance(val)
+	self.AutomaticFrameAdvance = val
+end
+
+
+if (CLIENT) then
+	local Name = "Friendly 81st Officer"
+	local LangName = "npc_vj_officer_81f"
+	language.Add(LangName, Name)
+	killicon.Add(LangName,"HUD/killicons/default",Color(255,80,0,255))
+	language.Add("#"..LangName, Name)
+	killicon.Add("#"..LangName,"HUD/killicons/default",Color(255,80,0,255))
+end

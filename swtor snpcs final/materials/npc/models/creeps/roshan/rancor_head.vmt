@@ -1,0 +1,20 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\JK3\Rancor\Rancor_head"
+  	"$bumpmap"	"models\JK3\Rancor\Rancor_head_n"
+
+	"$model" 1
+	"$halflambert" 1
+	"$normalmapalphaenvmapmask" "1"
+
+	"$phongalbedotint" 1
+                 "$phong" "1" 
+                "$phongexponent" "30"
+                 "$phongboost" "1"
+                 
+                 "$phongfresnelranges" "[.1 .5 1 ]" 
+
+	$detail "models\jk3\rancor\detail_leather"
+	$detailscale 4
+	$detailblendfactor .75
+}
