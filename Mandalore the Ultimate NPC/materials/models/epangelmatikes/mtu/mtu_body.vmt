@@ -1,0 +1,11 @@
+"VertexlitGeneric"
+{
+	"$basetexture" 				"models\epangelmatikes\MTU\MTU_body"
+	"$bumpmap" 				"models\epangelmatikes\MTU\MTU_body_n"
+
+
+	"$phong" "1"
+	"$phongexponent" "35"
+	"$phongboost" "2"
+	"$phongfresnelranges" "[1 0.5 1]"
+}
