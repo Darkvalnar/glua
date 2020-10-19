@@ -1,7 +1,0 @@
-"VertexLitGeneric"
-{
-	// Original shader: VertexLitTexture
-	"$basetexture" "models/Rusty/National_Guard/NationalGuardLower_marpat_d"
-	"$halflambert" 1
-	"$bumpmap" "models/Rusty/National_Guard/NationalGuardLower_n"
-}

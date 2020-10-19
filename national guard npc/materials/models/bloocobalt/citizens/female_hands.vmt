@@ -1,7 +1,0 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models\bloocobalt\citizens\female_hands"
-    "$bumpmap" "models\bloocobalt\citizens\female_hands_n"
-	"$halflambert" 1
-	"$nocull" 1
-}

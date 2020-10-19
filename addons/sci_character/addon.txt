@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+	"name"				"sci character"
+	"version"			"1.0"
+	"author_name"			"nykez"
+	"info"				""
+	"override"			"0"
+}

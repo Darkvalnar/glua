@@ -1,6 +1,0 @@
-"VertexLitGeneric"
-{
-	// Original shader: VertexLitTexture
-	"$basetexture" "models/Rusty/National_Guard/eric_facemap"
-	"$halflambert" 1
-}
