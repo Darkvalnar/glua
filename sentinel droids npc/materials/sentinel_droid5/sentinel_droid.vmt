@@ -1,9 +1,0 @@
-"VertexLitGeneric"
-{
-	"$baseTexture"	"Sentinel_droid5/Sentinel_droid"
-	"$nocull"	"1"
-
-	"$Phong" "1"
-	"$PhongBoost" "5"
-	"$PhongFresnelRanges"	"[.05 .5 1]"
-}
