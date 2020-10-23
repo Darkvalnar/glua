@@ -34,23 +34,24 @@ function ENT:OnRemove()
 
 end
 
-
 function ENT:Think()
-	local rad = CreateSound(self.Entity, "stalkerdetectors/geig2.wav")
-	local entes = ents.FindInSphere(self:GetPos(), 225)
+	--local rad = CreateSound(self.Entity, "stalkerdetectors/geig2.wav")
+	radiuval = 500
+	local entes = ents.FindInSphere(self:GetPos(), radiuval)
 			local d = DamageInfo()
 			d:SetDamage( math.random(1, 2) )
 			d:SetAttacker( self.Entity )
 			d:SetDamageType( DMG_RADIATION )
 	for k, v in pairs(entes) do
 		if v:GetPos().z >= self.Entity:GetPos().z-50 then
-			rad:SetSoundLevel(70)
+			--rad:SetSoundLevel(70)
 			if v:IsPlayer() then
 				v:TakeDamageInfo( d )
 				--rad:Play()
 			end
 		end
 	end
+	return radiuval
 end
 
 

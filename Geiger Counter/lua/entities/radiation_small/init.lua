@@ -36,6 +36,7 @@ end
 
 
 function ENT:Think()
+	radiuval = 225
 	local entes = ents.FindInSphere(self:GetPos(), 225)
 			local d = DamageInfo()
 			d:SetDamage( math.random(1, 2) )
@@ -48,6 +49,7 @@ function ENT:Think()
 			end
 		end
 	end
+	return radiuval
 end
 
 

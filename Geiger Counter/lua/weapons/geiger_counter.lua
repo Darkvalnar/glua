@@ -3,9 +3,9 @@ local swepmodel = "models/stalker/item/handhelds/datachik1.mdl" -- модель
 ---------------------------------------------------------------------------------
 SWEP.Base = "hand_base"
 SWEP.PrintName	= "Geiger Counter"
-SWEP.Author	= "Barney"
-SWEP.Instructions	= "ЛКМ - отобразить количество радиации на персонаже"
-SWEP.Category = "Stalker Radiation"
+SWEP.Author	= "Barney, Rawlings"
+SWEP.Instructions	= "Left Click to display radiation on screen"
+SWEP.Category = "Geiger Counter"
 
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
@@ -53,20 +53,27 @@ anomalies["radiation_med"] = true
 anomalies["radiation_big"] = true
 
 
-function SWEP:PrimaryAttack()
-	rad = CreateSound(self.Owner, "stalkerdetectors/geig2.wav")
-	if SERVER then
-		self.Owner:PrintMessage( HUD_PRINTCENTER, "Radiation: "..self.Owner.srad.cnt)
-		--rad:Play()
+function SWEP:PrimaryAttack() --fuck this entire function 
+	--rad = CreateSound(self.Owner, "stalkerdetectors/geig2.wav")
+	if SERVER then 
+		self.Owner:PrintMessage( HUD_PRINTCENTER, "Radiation: "..self.Owner.srad.cnt) --Do I need this? No I don't.
+
 	end
+--	if CLIENT then
+--		if dist < radiuval then
+--			rad:Play()
+--		end
+--	end
 end
 
 function SWEP:SecondaryAttack()
+--nobody needs this
 end
 
 function SWEP:Think()
 	rad = CreateSound(self.Owner, "stalkerdetectors/geig2.wav")
-	if CLIENT then
+	radiationradius = radiuval -- this literally saved my sanity, you have NO idea
+	if SERVER then
 		local anoms = {}
 		for k, v in pairs(ents.GetAll()) do
 			if anomalies[string.lower(v:GetClass())] then
@@ -81,8 +88,11 @@ function SWEP:Think()
 				ent = v_eq_flashbang
 			end
 		end
-		if dist < 500 then
+		if dist < radiationradius then --
 			rad:Play()
+			--PrintMessage (HUD_PRINTTALK, dist) --debug shit to make sure I can yell incomprehensible shit
+		else
+			self.Owner:StopSound ("stalkerdetectors/geig2.wav") --ezclap, spent like 5 hours on a workaround until I remembered this fucking function
 		end
 	end
 end	
