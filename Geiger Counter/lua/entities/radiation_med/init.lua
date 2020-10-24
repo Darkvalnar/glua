@@ -36,7 +36,7 @@ end
 
 function ENT:Think()
 	--local rad = CreateSound(self.Entity, "stalkerdetectors/geig2.wav")
-	radiuval = 500
+	radiuval = 700
 	local entes = ents.FindInSphere(self:GetPos(), radiuval)
 			local d = DamageInfo()
 			d:SetDamage( math.random(1, 2) )
