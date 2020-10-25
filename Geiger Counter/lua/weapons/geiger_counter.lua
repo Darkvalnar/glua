@@ -1,10 +1,9 @@
------------НАСТРОЙКИ-------------------------------------------------------
-local swepmodel = "models/stalker/item/handhelds/datachik1.mdl" -- модель
+local swepmodel = "models/stalker/item/handhelds/datachik1.mdl" 
 ---------------------------------------------------------------------------------
 SWEP.Base = "hand_base"
 SWEP.PrintName	= "Geiger Counter"
 SWEP.Author	= "Barney, Rawlings"
-SWEP.Instructions	= "Left Click to display radiation on screen"
+SWEP.Instructions	= "Left Click to display current rad levels"
 SWEP.Category = "Geiger Counter"
 
 SWEP.Spawnable = true
@@ -47,52 +46,63 @@ SWEP.WElements = {
 	["geiger_world"] = { type = "Model", model = swepmodel, bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(4, 4, -1), angle = Angle(0, 0, 0), size = Vector(0.75, 0.75, 0.75), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
 }
 
-local anomalies = {}
-anomalies["radiation_small"] = true
-anomalies["radiation_med"] = true
-anomalies["radiation_big"] = true
+local radentities = {}
+radentities["radiation_small"] = true
+radentities["radiation_med"] = true
+radentities["radiation_big"] = true
 
+radioactive = {}
+radioactive[1]= nil
 
 function SWEP:PrimaryAttack() --fuck this entire function 
-	--rad = CreateSound(self.Owner, "stalkerdetectors/geig2.wav")
 	if SERVER then 
-		self.Owner:PrintMessage( HUD_PRINTCENTER, "Radiation: "..self.Owner.srad.cnt) --Do I need this? No I don't.
+		self.Owner:PrintMessage( HUD_PRINTCENTER, "Radiation: "..self.Owner.srad.cnt) --Do I need this? 
 
 	end
---	if CLIENT then
---		if dist < radiuval then
---			rad:Play()
---		end
---	end
+
 end
 
 function SWEP:SecondaryAttack()
 --nobody needs this
+--could probablly draw a derma menu here for more custom shit...
+PrintMessage(HUD_PRINTCENTER, radioactive[1])
 end
 
 function SWEP:Think()
 	rad = CreateSound(self.Owner, "stalkerdetectors/geig2.wav")
-	radiationradius = radiuval -- this literally saved my sanity, you have NO idea
+	radiationradius = 1 --setting value to have something to work with
+	--radiationradius = radiuval -- this literally saved my sanity, you have NO idea
 	if SERVER then
 		local anoms = {}
 		for k, v in pairs(ents.GetAll()) do
-			if anomalies[string.lower(v:GetClass())] then
+			if radentities[string.lower(v:GetClass())] then
 				table.insert(anoms, v)
+				print (v:GetClass())
 			end
 		end
-		local dist = 501
+		local dist = 3000
 		local ent = nil
 		for k, v in pairs(anoms) do
 			if v:GetPos():Distance(self.Owner:GetPos()) < dist then
 				dist = v:GetPos():Distance(self.Owner:GetPos())
 				ent = v_eq_flashbang
+				radiationradius = radiuval
+				--table.remove(radioactive)
+				--table.insert(radioactive, radiationradius)
 			end
 		end
-		if dist < radiationradius then --
+		if radiationradius == nil then --sanity check
+			dist = 1
+			radiationradius = 1
+		elseif dist < radiationradius then --we're now in the vincinity of the radiation
 			rad:Play()
-			--PrintMessage (HUD_PRINTTALK, dist) --debug shit to make sure I can yell incomprehensible shit
-		else
+			PrintMessage (HUD_PRINTTALK, radiationradius) --debug 
+			--PrintMessage (HUD_PRINTCENTER, v:GetClass) --debug
+
+		end
+		if dist > radiationradius then 
 			self.Owner:StopSound ("stalkerdetectors/geig2.wav") --ezclap, spent like 5 hours on a workaround until I remembered this fucking function
+			--PrintMessage (HUD_PRINTTALK, "STOP") -- debug
 		end
 	end
 end	

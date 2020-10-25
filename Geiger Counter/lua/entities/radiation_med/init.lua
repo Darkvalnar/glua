@@ -51,6 +51,8 @@ function ENT:Think()
 			end
 		end
 	end
+	--table.remove(radioactive)
+	table.insert(radioactive, radiuval)
 	return radiuval
 end
 
